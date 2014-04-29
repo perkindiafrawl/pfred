@@ -66,6 +66,7 @@ class Deal(object):
         out += 'Loan rate:     \t%.2f\n' % (self.loanRate*100.0*12.0)
         out += 'Loan term:     \t%.2f\n' % (self.term)
         out += 'Special circ:  \t%.2f\n' % (self.specialMo)
+        out += 'Empty Months:  \t%.2f\n' % (self.emptyMonths)
          
         return out
         
@@ -132,8 +133,8 @@ class Deal(object):
         
         for appRate in arange(-2.0, 4.0, 1.0):
 
-            outFile = open('roi_vs_time_%.2f.txt' % (appRate),'w')
-            outFile.write('year\tcapital\tdownP\tnewValue\tappValue\tcashFlow\troi\n')
+            outFile = open('%s_roi_vs_time_%.2f.txt' % (self.name, appRate),'w')
+            outFile.write('year\tcapital\tdownP\tnewValue\tappValue\tcashFlow\tmo.pay\troi\n')
             income = 0.0
             payments = 0.0
             revenue = 0.0
@@ -152,8 +153,13 @@ class Deal(object):
                 # assume rent increases at appRate
                 newRent = self.rentMo*pow(appRate/100.0 + 1.0, y-1)
                 
+                # increase monthly payments
+                newTax = newValue*self.propTaxRate
+                moIncrease = newTax - self.price*self.propTaxRate
+                moIncrease = 0.0
+                
                 incomeList.append((12-self.emptyMonths)*newRent)
-                payment = self.paymentMo*12
+                payment = self.paymentMo*12 + moIncrease
                 if y > self.term : payment -= self.mortgagePaymentMo*12
                 paymentList.append(payment)
                 netList.append(incomeList[-1] - paymentList[-1])
@@ -168,13 +174,12 @@ class Deal(object):
                 roiList.append(roi*100.0)
                 
                 
-                
                 revenue += incomeList[-1] - paymentList[-1] + revenueReturn
                 
                 capitalList.append(revenue)
                 
-                outFile.write('%d\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\n' % \
-                              (y, (income-payments + self.downPayment*self.cost - self.closingCosts + appValue), (self.downPayment*self.cost), newValue, appValue, revenue, roi))
+                outFile.write('%d\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\n' % \
+                              (y, (income-payments + self.downPayment*self.cost - self.closingCosts + appValue), (self.downPayment*self.cost), newValue, appValue, revenue, payment, roi))
             subplot(2,1,1)
             l, = plot(years, roiList)
             lines.append(l)
@@ -197,15 +202,11 @@ class Deal(object):
         title('App. rate analysis, emptyMonths = %.1f' % (self.emptyMonths))
         savefig('roi_vs_time.png')   
         show()             
-        
-        
-        
-        
-    
-        
+
+
 if __name__ == '__main__':
     
-    perkCondo = Deal('perkCondo', 349000.00, 1.54, 8363.76, 50.0, 0.0, 3500.0, 0.0, 515.30, 21.872, 2.875, 30, 100.0, 1)
+    perkCondo = Deal('perkCondo', 349000.00, 1.54, 8375, 50.0, 9.0, 2700.0, 0.0, 515.30, 21.872, 2.875, 30, 100.0, 1)
    
     print(perkCondo)
     
