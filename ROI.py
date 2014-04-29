@@ -156,7 +156,6 @@ class Deal(object):
                 # increase monthly payments
                 newTax = newValue*self.propTaxRate
                 moIncrease = newTax - self.price*self.propTaxRate
-                moIncrease = 0.0
                 
                 incomeList.append((12-self.emptyMonths)*newRent)
                 payment = self.paymentMo*12 + moIncrease
