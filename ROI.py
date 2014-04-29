@@ -15,6 +15,8 @@ class Deal(object):
     def __init__(self, name, price, propTaxRate, closingCosts, insuranceMo,
                  propertyManagerMo, rentMo, appreciationRate, assessmentsMo, downPayment, loanRate, term, specialMo, emptyMonths):
         
+        self.outDir = 'ROI_out/'
+        self.fnamePrefix = self.outDir + name + '_'
         self.name = name
         self.price = price
         self.propTaxRate = propTaxRate/100.0
@@ -95,7 +97,7 @@ class Deal(object):
         xlabel('down payment %')
         ylabel('ROI %')
         grid(True)
-        savefig('roi_vs_downPayment.png')        
+        savefig(self.fnamePrefix + 'roi_vs_downPayment.png')        
         
     def ROIvsLoanRate(self, rates):
         """ Kinda lame plot of the functional form of ROI for this var """
@@ -114,7 +116,7 @@ class Deal(object):
         xlabel('loan rate %')
         ylabel('ROI %')
         grid(True)
-        savefig('roi_vs_loanRate.png')        
+        savefig(self.fnamePrefix + 'roi_vs_loanRate.png')        
         
     def ROIvsEmptyMonths(self, rates):
         """ Kinda lame plot of the functional form of ROI for this var """
@@ -133,7 +135,7 @@ class Deal(object):
         xlabel('# of empty months per year')
         ylabel('ROI %')
         grid(True)
-        savefig('roi_vs_emptyMonths.png')        
+        savefig(self.fnamePrefix + 'roi_vs_emptyMonths.png')        
         
     def ROIoverTime(self, numYears):
         """ The key function for this object. This function calculates the cash flow as a function of time
@@ -148,7 +150,7 @@ class Deal(object):
         for appRate in arange(-2.0, 4.0, 1.0):
 
             # prepare output file
-            outFile = open('%s_roi_vs_time_%.2f.txt' % (self.name, appRate),'w')
+            outFile = open(self.fnamePrefix + 'roi_vs_time_%.2f.txt' % (appRate),'w')
             outFile.write('year\tcapital\tdownP\tnewValue\tappValue\tcashFlow\tmo.pay\troi\n')
             
             # init vars
@@ -220,7 +222,7 @@ class Deal(object):
         plot([years[0], years[-1]], [10, 10],'k')
         ylabel('ROI %')
         title('App. rate analysis, emptyMonths = %.1f' % (self.emptyMonths))
-        savefig('roi_vs_time.png')   
+        savefig(self.fnamePrefix + 'roi_vs_time.png')   
         show()             
 
 
