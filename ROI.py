@@ -7,8 +7,11 @@ test commit
 
 from pylab import *
 
+
 class Deal(object):
-    
+    """
+    Deal object stores all information for a particular PFRED investment and can process stats on itself
+    """
     def __init__(self, name, price, propTaxRate, closingCosts, insuranceMo,
                  propertyManagerMo, rentMo, appreciationRate, assessmentsMo, downPayment, loanRate, term, specialMo, emptyMonths):
         
@@ -29,7 +32,11 @@ class Deal(object):
         
         self.CalculateROI()
         
+
     def CalculateROI(self):
+        """
+        Crude function for estimating 
+        """
         self.cost = self.price + self.closingCosts
         self.loanAmt = self.cost - self.downPayment*self.cost
         self.numberOfPayments = self.term*12
@@ -41,6 +48,7 @@ class Deal(object):
         return self.roi
         
     def __str__(self):
+        """ Prints out the summary info for a deal """
 
         out = 'ROI summary\n------------------------------------\n'
         out += 'Monthly payment:  \t%.2f\n' % (self.paymentMo)
@@ -71,7 +79,7 @@ class Deal(object):
         return out
         
     def ROIvsDownPayment(self, downPayments):
-        
+        """ Kinda lame plot of the functional form of ROI for this var """
         cache = self.downPayment
         roiList = list()
         
@@ -90,6 +98,7 @@ class Deal(object):
         savefig('roi_vs_downPayment.png')        
         
     def ROIvsLoanRate(self, rates):
+        """ Kinda lame plot of the functional form of ROI for this var """
         cache = self.loanRate
         roiList = list()
         
@@ -108,6 +117,7 @@ class Deal(object):
         savefig('roi_vs_loanRate.png')        
         
     def ROIvsEmptyMonths(self, rates):
+        """ Kinda lame plot of the functional form of ROI for this var """
         cache = self.emptyMonths
         roiList = list()
         
@@ -126,15 +136,22 @@ class Deal(object):
         savefig('roi_vs_emptyMonths.png')        
         
     def ROIoverTime(self, numYears):
+        """ The key function for this object. This function calculates the cash flow as a function of time
+        explicitly and reports the ROI as the interest rate of an equivalent yielding fixed income security
+        that would result in the same capital balance at each year"""
         
         figure(figsize=(8.5,11.0))
         lines = list()
         legStrs = list()
         
+        # loop over each assumed appreciation rate
         for appRate in arange(-2.0, 4.0, 1.0):
 
+            # prepare output file
             outFile = open('%s_roi_vs_time_%.2f.txt' % (self.name, appRate),'w')
             outFile.write('year\tcapital\tdownP\tnewValue\tappValue\tcashFlow\tmo.pay\troi\n')
+            
+            # init vars
             income = 0.0
             payments = 0.0
             revenue = 0.0
@@ -144,51 +161,55 @@ class Deal(object):
             roiList = list()
             capitalList = list()
             years = range(1,numYears+1)
+            
+            # loop over each year
             for y in years:
                 
-                # calculate new home value
+                # calculate new home and rent values
                 newValue = self.price*pow(appRate/100.0 + 1.0, y)
                 appValue = newValue - self.price
-                
-                # assume rent increases at appRate
                 newRent = self.rentMo*pow(appRate/100.0 + 1.0, y-1)
                 
-                # increase monthly payments
+                # increase monthly payments due to appreciation
                 newTax = newValue*self.propTaxRate
                 moIncrease = newTax - self.price*self.propTaxRate
                 
+                # advance the income list
                 incomeList.append((12-self.emptyMonths)*newRent)
+                
+                # calculate and advance the payments list
                 payment = self.paymentMo*12 + moIncrease
                 if y > self.term : payment -= self.mortgagePaymentMo*12
                 paymentList.append(payment)
+                
+                # advance the net-revenue list
                 netList.append(incomeList[-1] - paymentList[-1])
                 
+                # advance the accummulated variables
                 income += incomeList[-1]
                 payments += paymentList[-1]
-                roi = 0.0
-                
-                revenueReturn = 0.0*revenue
-                
-                roi = max(-.2, pow( (revenueReturn + income-payments + self.downPayment*self.cost - self.closingCosts + appValue) / (self.downPayment*self.cost), 1.0/y) - 1.0)
-                roiList.append(roi*100.0)
-                
-                
-                revenue += incomeList[-1] - paymentList[-1] + revenueReturn
-                
+                revenue += incomeList[-1] - paymentList[-1]
                 capitalList.append(revenue)
                 
+                # calculate ROI
+                roi = 0.0
+                roi = max(-.2, pow( (income-payments + self.downPayment*self.cost - self.closingCosts + appValue) / (self.downPayment*self.cost), 1.0/y) - 1.0)
+                roiList.append(roi*100.0)
+                
+                # output results for this year
                 outFile.write('%d\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\n' % \
                               (y, (income-payments + self.downPayment*self.cost - self.closingCosts + appValue), (self.downPayment*self.cost), newValue, appValue, revenue, payment, roi))
+            
+            # plot the ROI and capital for this year
             subplot(2,1,1)
             l, = plot(years, roiList)
             lines.append(l)
             legStrs.append('%.1f' % (appRate))
-            
             subplot(2,1,2)
             plot(years, capitalList)
             outFile.close()
-            
-            
+
+        # tweak plots
         xlabel('year')
         ylabel('revenue')
         grid(True)
@@ -208,10 +229,7 @@ if __name__ == '__main__':
     perkCondo = Deal('perkCondo', 349000.00, 1.54, 8375, 50.0, 9.0, 2700.0, 0.0, 515.30, 21.872, 2.875, 30, 100.0, 1)
    
     print(perkCondo)
-    
-    #perkCondo.ROIvsDownPayment(range(10,51,1))
-    #perkCondo.ROIvsLoanRate(arange(2.5,5.5,0.1))
-    #perkCondo.ROIvsEmptyMonths(arange(0.0,2.0,0.1))
+
     perkCondo.ROIoverTime(40)
     
     # lender paid:
