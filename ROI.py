@@ -174,13 +174,13 @@ class Deal(object):
 
                 # increase monthly payments due to appreciation
                 newTax = newValue*self.propTaxRate
-                moIncrease = newTax - self.price*self.propTaxRate
+                taxDeltaYr = newTax - self.price*self.propTaxRate
 
                 # advance the income list
                 incomeList.append((12-self.emptyMonths)*newRent)
 
                 # calculate and advance the payments list
-                payment = self.paymentMo*12 + moIncrease
+                payment = self.paymentMo*12 + taxDeltaYr
                 if y > self.term : payment -= self.mortgagePaymentMo*12
                 paymentList.append(payment)
 
