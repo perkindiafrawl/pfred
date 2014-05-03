@@ -1,0 +1,15 @@
+#####################
+# DATABASE SETTINGS #
+#####################
+
+DB_HOST         = '' # <--- Add the database password here
+DB_USER         = '' # <--- Add the username here
+DB_PASS         = '' # <--- Add the password here
+DB_DATABASE     = '' # <--- Add the database name here
+
+
+########################
+# OUTPUT FILE SETTINGS #
+########################
+
+OUTPUT_FILES_PATH     = 'output'

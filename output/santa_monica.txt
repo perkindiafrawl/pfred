@@ -1,0 +1,51 @@
+address1	price	is_sold	square_footage	baths	lat	property_type	city	zip	url	long	beds	source	state
+1024 5th St #7	555000	0	664	1	34.021873	Condo	Santa Monica	90403	http://www.trulia.com/property/3025262952-1024-5th-St-7-Santa-Monica-CA-90403	-118.50022	1	trulia	CA
+1043 12th St #3	330000	0		1	34.027287	Condo	Santa Monica	90403	http://www.trulia.com/property/3051521711-1043-12th-St-3-Santa-Monica-CA-90403	-118.4926	1	trulia	CA
+1235 Euclid St #3	775000	0	1355	3	34.0254	Condo	Santa Monica	90404	http://www.trulia.com/property/3039769059-1235-Euclid-St-3-Santa-Monica-CA-90404	-118.48854	2	trulia	CA
+225 Georgina Ave	7900000	0	3603	3	34.027504	Single-Family Home	Santa Monica	90402	http://www.trulia.com/property/3020545930-225-Georgina-Ave-Santa-Monica-CA-90402	-118.51105	3	trulia	CA
+954 5th St	2100000	0	1316	2	34.02262	Single-Family Home	Santa Monica	90403	http://www.trulia.com/property/3004515541-954-5th-St-Santa-Monica-CA-90403	-118.5011	4	trulia	CA
+201 Ocean Ave	2498000	0	1228	2	34.02729	Condo	Santa Monica	90402	http://www.trulia.com/property/3146613114-201-Ocean-Ave-Santa-Monica-CA-90402	-118.51464	2	trulia	CA
+1043 12th St #4	525000	0	624	1	34.027287	Condo	Santa Monica	90403	http://www.trulia.com/property/3154409465-1043-12th-St-4-Santa-Monica-CA-90403	-118.4926	1	trulia	CA
+701 Ocean Ave #110	2195000	0	1624	3	34.023018	Condo	Santa Monica	90402	http://www.trulia.com/property/3154209531-701-Ocean-Ave-110-Santa-Monica-CA-90402	-118.50778	2	trulia	CA
+1024 12th St #2	925000	0		3	34.02724	Condo	Santa Monica	90403	http://www.trulia.com/property/3102387144-1024-12th-St-2-Santa-Monica-CA-90403	-118.4936	2	trulia	CA
+201 Ocean Ave #1809P	1600000	0	1566	2 full, 1 partial	34.02729	Condo	Santa Monica	90402	http://www.trulia.com/property/3033533725-201-Ocean-Ave-1809P-Santa-Monica-CA-90402	-118.51464	3	trulia	CA
+201 Ocean Ave #B509	2250000	0	1562	4	34.02729	Condo	Santa Monica	90402	http://www.trulia.com/property/3154614940-201-Ocean-Ave-B509-Santa-Monica-CA-90402	-118.51464	3	trulia	CA
+1138 16th St #3	839000	0	1286	3	34.028633	Townhome	Santa Monica	90403	http://www.trulia.com/property/3153579214-1138-16th-St-3-Santa-Monica-CA-90403	-118.48786	2	trulia	CA
+1133 15th St #4	889000	0	1468	3	34.028404	Condo	Santa Monica	90403	http://www.trulia.com/property/3151094957-1133-15th-St-4-Santa-Monica-CA-90403	-118.48838	3	trulia	CA
+201 Ocean Ave #B1504	3400000	0	1554	2 full, 1 partial	34.02729	Condo	Santa Monica	90402	http://www.trulia.com/property/3147736106-201-Ocean-Ave-B1504-Santa-Monica-CA-90402	-118.51464	3	trulia	CA
+1119 Lincoln Blvd	529000	0	627	1	34.023335	Condo	Santa Monica	90403	http://www.trulia.com/property/3139917317-1119-Lincoln-Blvd-Santa-Monica-CA-90403	-118.495346	1	trulia	CA
+1138 12th St #5	689000	0	1045	1 full, 1 partial	34.025566	Condo	Santa Monica	90403	http://www.trulia.com/property/3147420410-1138-12th-St-5-Santa-Monica-CA-90403	-118.491646	2	trulia	CA
+901 10th St #305	915000	0	1491	2	34.027782	Condo	Santa Monica	90403	http://www.trulia.com/property/3034640448-901-10th-St-305-Santa-Monica-CA-90403	-118.49686	3	trulia	CA
+701 Ocean Ave #210	2435000	0	1624	2 full, 1 partial	34.023018	Condo	Santa Monica	90402	http://www.trulia.com/property/3153044181-701-Ocean-Ave-210-Santa-Monica-CA-90402	-118.50778	2	trulia	CA
+202 San Vicente Blvd #8	1275000	0	1611	2 full, 1 partial	34.02743	Apt/Condo/Twnhm	Santa Monica	90402	http://www.trulia.com/property/3145829236-202-San-Vicente-Blvd-8-Santa-Monica-CA-90402	-118.51216	2	trulia	CA
+201 Ocean Ave #407P	765000	0	515	1	34.02729	Condo	Santa Monica	90402	http://www.trulia.com/property/3025831445-201-Ocean-Ave-407P-Santa-Monica-CA-90402	-118.51464		trulia	CA
+1121 California Ave	2600000	0	4542		34.026505	Apartment	Santa Monica	90403	http://www.trulia.com/property/3153384237-1121-California-Ave-Santa-Monica-CA-90403	-118.49297		trulia	CA
+944 5th St #104	1499000	0	1564	3	34.02282	Townhome	Santa Monica	90403	http://www.trulia.com/property/3149910039-944-5th-St-104-Santa-Monica-CA-90403	-118.50133	2	trulia	CA
+918 5th St	2100000	0	936	1	34.02331	Single-Family Home	Santa Monica	90403	http://www.trulia.com/property/3148699959-918-5th-St-Santa-Monica-CA-90403	-118.5019	1	trulia	CA
+843 4th St #106	550000	0	750	1	34.0238	Condo	Santa Monica	90403	http://www.trulia.com/property/3142438217-843-4th-St-106-Santa-Monica-CA-90403	-118.50323	1	trulia	CA
+201 Ocean Ave #1608B	3650000	0		2	34.02729	Condo	Santa Monica	90402	http://www.trulia.com/property/3140017398-201-Ocean-Ave-1608B-Santa-Monica-CA-90402	-118.51464	2	trulia	CA
+901 10th St #210	903500	1	1380	2	34.027782	Condo	Santa Monica	90403	http://www.trulia.com/homes/California/Santa_Monica/sold/1974810-901-10th-St-210-Santa-Monica-CA-90403	-118.49686	2	trulia	CA
+837 10th St #9	540000	1	797	1	34.02853	Condo	Santa Monica	90403	http://www.trulia.com/homes/California/Santa_Monica/sold/501001-837-10th-St-9-Santa-Monica-CA-90403	-118.497734	1	trulia	CA
+1253 17th St	1295000	1			34.028168	Condo	Santa Monica	90404	http://www.trulia.com/homes/California/Santa_Monica/sold/859589-1253-17th-St-Santa-Monica-CA-90404	-118.48441		trulia	CA
+1130 9th St #5	651000	1	954	2	34.023464	Condo	Santa Monica	90403	http://www.trulia.com/homes/California/Santa_Monica/sold/4276427-1130-9th-St-5-Santa-Monica-CA-90403	-118.49471	2	trulia	CA
+535 Ocean Ave #12A	3190000	1	1781	2	34.02437	Condo	Santa Monica	90402	http://www.trulia.com/homes/California/Santa_Monica/sold/4281938-535-Ocean-Ave-12A-Santa-Monica-CA-90402	-118.5096	3	trulia	CA
+1008 6th St #G	660000	1	758	1	34.022884	Condo	Santa Monica	90403	http://www.trulia.com/homes/California/Santa_Monica/sold/4280932-1008-6th-St-G-Santa-Monica-CA-90403	-118.499565	2	trulia	CA
+618 Lincoln Blvd #5	1200000	1	1566	3	34.028713	Condo	Santa Monica	90402	http://www.trulia.com/homes/California/Santa_Monica/sold/1609342-618-Lincoln-Blvd-5-Santa-Monica-CA-90402	-118.50269	3	trulia	CA
+535 Ocean Ave #1C	910000	1	1585	2	34.02437	Condo	Santa Monica	90402	http://www.trulia.com/homes/California/Santa_Monica/sold/4281908-535-Ocean-Ave-1C-Santa-Monica-CA-90402	-118.5096	2	trulia	CA
+201 Ocean Ave #806B	35000	1	1229	2	34.026905	Coop	Santa Monica	90402	http://www.trulia.com/homes/California/Santa_Monica/sold/21995580-201-Ocean-Ave-806B-Santa-Monica-CA-90402	-118.51404	2	trulia	CA
+1301 17th St #102	721000	1	1545	2	34.02779	Condo	Santa Monica	90404	http://www.trulia.com/homes/California/Santa_Monica/sold/4272732-1301-17th-St-102-Santa-Monica-CA-90404	-118.48397	2	trulia	CA
+123 Georgina Ave #8	2000000	1	2671	3	34.02651	Condo	Santa Monica	90402	http://www.trulia.com/homes/California/Santa_Monica/sold/4281575-123-Georgina-Ave-8-Santa-Monica-CA-90402	-118.5122	2	trulia	CA
+520 Montana Ave #102	950000	1	1909	2	34.02571	Condo	Santa Monica	90403	http://www.trulia.com/homes/California/Santa_Monica/sold/4280831-520-Montana-Ave-102-Santa-Monica-CA-90403	-118.50287	2	trulia	CA
+1011 5th St #2	1079500	1	1626	3	34.02251	Condo	Santa Monica	90403	http://www.trulia.com/homes/California/Santa_Monica/sold/1415357-1011-5th-St-2-Santa-Monica-CA-90403	-118.49991	3	trulia	CA
+918 9th St #B	1100000	1	2070	2	34.02638	Condo	Santa Monica	90403	http://www.trulia.com/homes/California/Santa_Monica/sold/4276367-918-9th-St-B-Santa-Monica-CA-90403	-118.498116	2	trulia	CA
+938 12th St #301	1580000	1	1752	3	34.028282	Condo	Santa Monica	90403	http://www.trulia.com/homes/California/Santa_Monica/sold/680700-938-12th-St-301-Santa-Monica-CA-90403	-118.49482	3	trulia	CA
+848 Lincoln Blvd #P	750000	1	1420	3	34.02631	Condo	Santa Monica	90403	http://www.trulia.com/homes/California/Santa_Monica/sold/4280666-848-Lincoln-Blvd-P-Santa-Monica-CA-90403	-118.499886	2	trulia	CA
+515 Ocean Ave #506S	1400000	1	1490	2	34.024708	Condo	Santa Monica	90402	http://www.trulia.com/homes/California/Santa_Monica/sold/1473576-515-Ocean-Ave-506S-Santa-Monica-CA-90402	-118.510185	2	trulia	CA
+1038 11th St #D	1200000	1	1587	3	34.026176	Condo	Santa Monica	90403	http://www.trulia.com/homes/California/Santa_Monica/sold/1000964896-1038-11th-St-D-Santa-Monica-CA-90403	-118.4942	3	trulia	CA
+1041 Lincoln Blvd #6	675000	1	1047	2	34.02422	Condo	Santa Monica	90403	http://www.trulia.com/homes/California/Santa_Monica/sold/1500571-1041-Lincoln-Blvd-6-Santa-Monica-CA-90403	-118.496376	2	trulia	CA
+843 4th St #303	775000	1	1001	2	34.02378	Condo	Santa Monica	90403	http://www.trulia.com/homes/California/Santa_Monica/sold/1000965362-843-4th-St-303-Santa-Monica-CA-90403	-118.503235	2	trulia	CA
+1144 10th St #4	695000	1	969	2	34.023937	Condo	Santa Monica	90403	http://www.trulia.com/homes/California/Santa_Monica/sold/28857656-1144-10th-St-4-Santa-Monica-CA-90403	-118.493416	2	trulia	CA
+603 Ocean Ave #1N	3000000	1	1846	3	34.02402	Condo	Santa Monica	90402	http://www.trulia.com/homes/California/Santa_Monica/sold/2005207-603-Ocean-Ave-1N-Santa-Monica-CA-90402	-118.509	2	trulia	CA
+843 4th St #110	610000	1	910	2	34.02378	Condo	Santa Monica	90403	http://www.trulia.com/homes/California/Santa_Monica/sold/1000964212-843-4th-St-110-Santa-Monica-CA-90403	-118.503235	2	trulia	CA
+1247 10th St #4	801000	1	1505	2	34.0229	Condo	Santa Monica	90401	http://www.trulia.com/homes/California/Santa_Monica/sold/1575257-1247-10th-St-4-Santa-Monica-CA-90401	-118.49115	2	trulia	CA
+924 5th St #2	409000	1	618	1	34.023212	Condo	Santa Monica	90403	http://www.trulia.com/homes/California/Santa_Monica/sold/580514-924-5th-St-2-Santa-Monica-CA-90403	-118.501785	1	trulia	CA
