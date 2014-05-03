@@ -232,11 +232,15 @@ class Deal(object):
 
 if __name__ == '__main__':
 
-    perkCondo = Deal('perkCondo', 349000.00, 1.54, 8375, 50.0, 9.0, 2700.0, 0.0, 515.30, 21.872, 2.875, 30, 100.0, 1)
+    #perkCondo = Deal('perkCondo', 349000.00, 1.54, 8375, 50.0, 9.0, 2700.0, 0.0, 515.30, 21.872, 2.875, 30, 100.0, 1)
+    
+    p = 677557.0
+    r = 2842.0
+    deal = Deal('SM', p, 0.8, 0.02*p , 67.0, 9.0, r, 0.0, 515.30, 21.872, 4.1, 30, 100.0, 1)
 
-    print(perkCondo)
+    print(deal)
 
-    perkCondo.ROIoverTime(40)
+    deal.ROIoverTime(40)
 
     # lender paid:
     #    1% commission to broker
