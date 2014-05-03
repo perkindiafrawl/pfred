@@ -1,5 +1,5 @@
 # PFRED custom files / folders
-ROI_out/*
+output/roi/*
 config/global_settings.py
 
 # Eclipse project files

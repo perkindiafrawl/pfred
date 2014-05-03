@@ -6,6 +6,7 @@ test commit
 '''
 
 from pylab import *
+import os
 
 
 class Deal(object):
@@ -15,7 +16,7 @@ class Deal(object):
     def __init__(self, name, price, propTaxRate, closingCosts, insuranceMo,
                  propertyManagerMo, rentMo, appreciationRate, assessmentsMo, downPayment, loanRate, term, specialMo, emptyMonths):
 
-        self.outDir = 'ROI_out/'
+        self.outDir = 'output/roi/'
         self.fnamePrefix = self.outDir + name + '_'
         self.name = name
         self.price = price
@@ -150,6 +151,9 @@ class Deal(object):
         for appRate in arange(-2.0, 4.0, 1.0):
 
             # prepare output file
+            if not os.path.isdir(self.outDir):
+                os.makedirs(self.outDir)
+
             outFile = open(self.fnamePrefix + 'roi_vs_time_%.2f.txt' % (appRate),'w')
             outFile.write('year\tcapital\tdownP\tnewValue\tappValue\tcashFlow\tmo.pay\troi\n')
 
