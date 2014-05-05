@@ -138,24 +138,34 @@ class Deal(object):
         grid(True)
         savefig(self.fnamePrefix + 'roi_vs_emptyMonths.png')
 
-    def ROIoverTime(self, numYears):
+    def ROIatYear(self, y, appRate = 0.0):
+        
+        return self.ROIoverTime(y, appRate, log = False)
+        
+                
+    def ROIoverTime(self, numYears, appRate = None, log = True):
         """ The key function for this object. This function calculates the cash flow as a function of time
         explicitly and reports the ROI as the interest rate of an equivalent yielding fixed income security
         that would result in the same capital balance at each year"""
 
-        figure(figsize=(8.5,11.0))
-        lines = list()
-        legStrs = list()
+        if log:
+            figure(figsize=(8.5,11.0))
+            lines = list()
+            legStrs = list()
 
         # loop over each assumed appreciation rate
-        for appRate in arange(-2.0, 4.0, 1.0):
+        appRates = []
+        if appRate is not None: appRates.append(appRate)
+        else: appRates = arange(-2.0, 4.0, 1.0)
+        for appRate in appRates:
 
             # prepare output file
-            if not os.path.isdir(self.outDir):
-                os.makedirs(self.outDir)
+            if log:
+                if not os.path.isdir(self.outDir):
+                    os.makedirs(self.outDir)
 
-            outFile = open(self.fnamePrefix + 'roi_vs_time_%.2f.txt' % (appRate),'w')
-            outFile.write('year\tcapital\tdownP\tnewValue\tappValue\tcashFlow\tmo.pay\troi\n')
+                outFile = open(self.fnamePrefix + 'roi_vs_time_%.2f.txt' % (appRate),'w')
+                outFile.write('year\tcapital\tdownP\tnewValue\tappValue\tcashFlow\tmo.pay\troi\n')
 
             # init vars
             income = 0.0
@@ -199,36 +209,47 @@ class Deal(object):
 
                 # calculate ROI
                 roi = 0.0
-                roi = max(-.2, pow( (income-payments + self.downPayment*self.cost - self.closingCosts + appValue) / (self.downPayment*self.cost), 1.0/y) - 1.0)
+                aReturn = (income-payments + self.downPayment*self.cost - self.closingCosts + appValue) / (self.downPayment*self.cost)
+                if aReturn > 0.0:
+                    roi = max(-0.2, pow( aReturn, 1.0/y) - 1.0)
+                else:
+                    roi = -0.2
+
                 roiList.append(roi*100.0)
 
                 # output results for this year
-                outFile.write('%d\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\n' % \
-                              (y, (income-payments + self.downPayment*self.cost - self.closingCosts + appValue), (self.downPayment*self.cost), newValue, appValue, revenue, payment, roi))
+                if log:
+                    outFile.write('%d\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\n' % \
+                                  (y, (income-payments + self.downPayment*self.cost - self.closingCosts + appValue), (self.downPayment*self.cost), newValue, appValue, revenue, payment, roi))
 
-            # plot the ROI and capital for this year
-            subplot(2,1,1)
-            l, = plot(years, roiList)
-            lines.append(l)
-            legStrs.append('%.1f' % (appRate))
-            subplot(2,1,2)
-            plot(years, capitalList)
-            outFile.close()
+            if log:
+                # plot the ROI and capital for this year
+                subplot(2,1,1)
+                l, = plot(years, roiList)
+                lines.append(l)
+                legStrs.append('%.1f' % (appRate))
+                subplot(2,1,2)
+                plot(years, capitalList)
+                outFile.close()
+            
 
         # tweak plots
-        xlabel('year')
-        ylabel('revenue')
-        grid(True)
-        legend(lines, legStrs, loc = 2)
-        plot([years[0], years[-1]], [self.downPayment*self.cost, self.downPayment*self.cost],'k')
-        subplot(2,1,1)
-        plot([years[0], years[-1]], [0, 0],'k')
-        plot([years[0], years[-1]], [10, 10],'k')
-        ylabel('ROI %')
-        title('App. rate analysis, emptyMonths = %.1f' % (self.emptyMonths))
-        savefig(self.fnamePrefix + 'roi_vs_time.png')
-        show()
+        if log:
+            xlabel('year')
+            ylabel('revenue')
+            grid(True)
+            legend(lines, legStrs, loc = 2)
+            plot([years[0], years[-1]], [self.downPayment*self.cost, self.downPayment*self.cost],'k')
+            subplot(2,1,1)
+            plot([years[0], years[-1]], [0, 0],'k')
+            plot([years[0], years[-1]], [10, 10],'k')
+            ylabel('ROI %')
+            title('App. rate analysis, emptyMonths = %.1f' % (self.emptyMonths))
+            savefig(self.fnamePrefix + 'roi_vs_time.png')
+            show()
 
+        # return last roi
+        return roiList[-1]
 
 if __name__ == '__main__':
 
